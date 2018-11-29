@@ -37,5 +37,12 @@ important things to do.
 Right now I'm abusing the `data_files` argument to `setuptools.setup` to get it
 to install the pre-built shared library.
 
+## Example
+```
+>>> from pyphfit2 import phfit2
+>>> phfit(1, 1, 1, 10)
+0.0
+```
+
 ## Contributing
 I'm happy to accept pull requests.
