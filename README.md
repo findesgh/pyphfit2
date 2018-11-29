@@ -3,6 +3,8 @@ Python wrapper for the Fortran routine `phfit2` from Verner et
 al. 1996. `phfit2` fits ground state atomic cross sections for atomic numbers 1
 through 30 for all shells occupied in these ground states.
 
+Can be used with `astropy.units`, which I find to be very convenient.
+
 This is mostly to be seen as an expirement in creating a Python package that
 interfaces with Fortran code. It would likely have been a lot easier to just
 re-implement the fitting routine in Python. However, my hope is that it might
