@@ -2,7 +2,13 @@
 *.pyc
 # emacs backup files
 *~
-# python egg info
+# python
 *.egg-info/*
 .cache/*
 .eggs/*
+build
+dist
+# build files
+*.o
+*.mod
+*.so
