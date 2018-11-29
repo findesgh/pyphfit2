@@ -52,7 +52,7 @@ def phfit2(nz, ne, shell, wave):
 
     References
     ----------
-    .. [1] Verner et al. 1996
+    .. [1] Verner et al. 1996, 1996ApJ...465..487V
 
     Examples
     --------
