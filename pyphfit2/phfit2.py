@@ -1,8 +1,12 @@
 import ctypes as _ctypes
 import numpy as _np
 import astropy.units as _u
+import os as _os
 
-_phfit2_wrapper = _ctypes.CDLL('../phfit2/phfit2.so')
+_phfit2_wrappers = _ctypes.CDLL(
+    _os.path.join(
+        _os.path.realpath(
+            _os.path.dirname(__file__)), 'lib/phfit2.so'))
 
 
 def phfit2(nz, ne, shell, wave):
@@ -86,14 +90,15 @@ def phfit2(nz, ne, shell, wave):
     le = 1 if scalar_in else len(e)
 
     res = _np.zeros_like(e, dtype=_np.float32)
-    _phfit2_wrapper.c_phfit2_arr(_ctypes.c_int(nz),
-                                 _ctypes.c_int(ne),
-                                 _ctypes.c_int(shell),
-                                 e.ctypes.data_as(
-                                     _ctypes.POINTER(_ctypes.c_float)),
-                                 _ctypes.c_int(le),
-                                 res.ctypes.data_as(
-                                     _ctypes.POINTER(_ctypes.c_float)))
+
+    _phfit2_wrappers.c_phfit2_arr(_ctypes.c_int(nz),
+                                  _ctypes.c_int(ne),
+                                  _ctypes.c_int(shell),
+                                  e.ctypes.data_as(
+                                      _ctypes.POINTER(_ctypes.c_float)),
+                                  _ctypes.c_int(le),
+                                  res.ctypes.data_as(
+                                      _ctypes.POINTER(_ctypes.c_float)))
     if scalar_in:
         # scalar in means scalar out
         res = float(res)
