@@ -11,8 +11,9 @@ nevertheless be useful for someone.
 ## Installation
 ### Building the shared library
 First, you need to build a shared library from `phfit2.f` and
-`phfit2_wrapper.f90` and copy it to `pyphfit2/lib/phfit2.so`. `phfit2/makefile`
-gives an example of how to do this on Linux using either gfortran or ifort.
+`phfit2_wrapper.f90` and copy it to
+`pyphfit2/lib/libphfit2.so`. `phfit2/makefile` gives an example of how to do
+this on Linux using either gfortran or ifort.
 
 So if you're on Linux, choose your Fortran compiler in the makefile and then do:
 ```

@@ -20,5 +20,5 @@ setuptools.setup(
     tests_require=[
         'pytest'
     ],
-    data_files=[('pyphfit2/lib', ['pyphfit2/lib/phfit2.so'])]
+    data_files=[('pyphfit2/lib', ['pyphfit2/lib/libphfit2.so'])]
 )

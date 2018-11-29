@@ -6,7 +6,7 @@ import os as _os
 _phfit2_wrappers = _ctypes.CDLL(
     _os.path.join(
         _os.path.realpath(
-            _os.path.dirname(__file__)), 'lib/phfit2.so'))
+            _os.path.dirname(__file__)), 'lib/libphfit2.so'))
 
 
 def phfit2(nz, ne, shell, wave):
