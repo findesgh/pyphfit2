@@ -70,7 +70,7 @@ def phfit2(nz, ne, shell, wave):
     if nz < 1 or nz > 30:
         raise ValueError("nz must be 1 <= nz <= 30.")
     if ne < 1 or ne > nz:
-        raise ValueError("ne must be 1 <= nz <= nz.")
+        raise ValueError("ne must be 1 <= ne <= nz.")
     if shell < 1 or shell > 7:
         raise ValueError("shell must be 1 <= shell <= 7.")
 
