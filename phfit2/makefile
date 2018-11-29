@@ -2,7 +2,7 @@ CC=ifort
 # CC=gfortran
 CFLAGS=-fPIC -O3
 SONAME=phfit2.so
-MODULES=phfit2.f phfit2_wrapper.f90
+MODULES=phfit2.f phfit2_wrappers.f90
 SOURCES=$(MODULES)
 TMP=$(MODULES:.f=.o)
 OBJECTS=$(TMP:.f90=.o)
