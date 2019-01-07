@@ -5,7 +5,7 @@ with open('README.md') as fh:
 
 setuptools.setup(
     name='pyphfit2',
-    version='0.1.dev',
+    version='0.1.dev0',
     author_email='findessp@yandex.ru',
     description='Python wrapper for the Verner et al. phfit2.',
     long_description=long_desc,
