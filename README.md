@@ -29,9 +29,9 @@ With the shared library built, you can then run `python setup.py install`.
 
 ### Notes
 I gave up on trying to get setuptools to do the building of the shared
-library. This is almost certainly possible using `f2py` or `f2py3`, but the
-goal here was to use Fortran-C interoperability to interface Python and Fortran
-as directly as possible using the `ctypes` library. Maybe subclassing
+library. This is almost certainly possible using `f2py`, but the goal here was
+to use Fortran-C interoperability to interface Python and Fortran as directly
+as possible using the `ctypes` library. Maybe subclassing
 `distutils.core.Extension`, or subclassing
 `numpy.distutils.command.build_ext.build_ext` would work, but I have more
 important things to do.
@@ -39,11 +39,43 @@ important things to do.
 Right now I'm abusing the `data_files` argument to `setuptools.setup` to get it
 to install the pre-built shared library.
 
-## Example
+## Examples
+
+### Direct use
 ```
 >>> from pyphfit2 import phfit2
 >>> phfit(1, 1, 1, 10)
 0.0
+```
+```
+>>> phfit(1, 1, 1, 13.6)
+6.346298694610596
+```
+
+### With `numpy`
+```
+>>> import numpy as np
+>>> phfit2(1, 1, 1, np.linspace(10, 20))
+array([0.       , 4.8715363, 2.2111037], dtype=float32)
+```
+
+### With `astropy`
+```
+>>> import astropy.units as u
+>>> phfit2(1, 1, 1, 13.6*u.eV)
+<Quantity 6.34629869 Mbarn>
+```
+```
+>>> phfit2(1, 1, 1, 1e17*u.Hz)
+<Quantity 0.00021138 Mbarn>
+```
+```
+>>> phfit2(1, 1, 1, 1e-2*u.micron)
+<Quantity 0.00995493 Mbarn>
+```
+```
+>>> phfit2(1, 1, 1, np.linspace(1e17, 1.5e17, 3)*u.Hz)
+<Quantity [2.1138341e-04, 1.0172740e-04, 5.5773828e-05] Mbarn>
 ```
 
 ## Contributing
