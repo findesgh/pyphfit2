@@ -42,12 +42,12 @@ def phfit2(nz, ne, shell, wave):
     res : Quantity or array_like
         Cross section [Mb]. The `type` of this will be equivalent to the one of
         `wave`. However, it might differ in precision, since `phfit2` works
-        with single precision floats..
+        with single precision floats.
 
     Raises
     ------
     ValueError :
-        If `nz`, `ne` and/or `shell` lie outside of the allowed range and if
+        If `nz`, `ne` and/or `shell` lie outside of the allowed range and/or if
         `wave` has wrong dimensions.
 
     References
@@ -85,7 +85,8 @@ def phfit2(nz, ne, shell, wave):
     # check dimensionality of input
     e = _np.asarray(e, dtype=_np.float32)
     if e.ndim > 1:
-        raise ValueError("Energy array needs to have zero or one dimensions.")
+        raise ValueError(
+            "Energy array needs to have zero or one dimension(s).")
     scalar_in = e.ndim == 0
     le = 1 if scalar_in else len(e)
 
